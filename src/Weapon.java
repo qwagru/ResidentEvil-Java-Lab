@@ -16,7 +16,9 @@ abstract class Weapon {
     // getters, setters and some shooting logic
     public String getName() { return name; }
     public int getAmmo() { return ammo; }
-    public void setAmmo(int ammo) { this.ammo = ammo; }
+    public void setAmmo(int ammo) {
+        this.ammo = Math.clamp(ammo, 0, 7);
+    }
     public void useAmmo() { if (ammo > 0) ammo--; }
 
     public int getHitChance(int targetZone) {
